@@ -1,4 +1,4 @@
 commit:
 		git add .
-		git commit -m "commit message"
+		git commit -m "${m}"
 		git push origin HEAD
