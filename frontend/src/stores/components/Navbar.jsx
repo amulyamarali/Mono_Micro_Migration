@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="navbar-section">
 
       <div className="navSection">
-        <Link to='/' className="custom-link">
+        <Link to='/actual' className="custom-link">
           <div className="title">
             <h2>E-Mart</h2>
           </div>
@@ -23,12 +23,12 @@ const Navbar = () => {
         {/* <div className="user">
           <div className="user-detail">SignIN/SignUp</div>
         </div> */}
-        <Link to="/login" className="custom-link">
+        {/* <Link to="/login" className="custom-link">
           <h3>Login</h3>
         </Link>
         <Link to="/signup" className="custom-link">
           <h3>Signup</h3>
-        </Link>
+        </Link> */}
         <Link to='/cart'>
           <div className="cart">Cart
             <span>
