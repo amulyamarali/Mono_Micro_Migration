@@ -22,6 +22,7 @@ client = MongoClient(uri)
 db = client['monolithic_db']  # Change 'your_database_name' to your actual database name
 user_collection = db['user']
 cart_collection = db['cart']
+order_collection = db['order']
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -82,6 +83,34 @@ def remove_from_cart():
         return jsonify({"message": "No item found to delete"}), 404
 
     return jsonify({"message": "Item removed from cart"}), 200
+
+
+@app.route('/order', methods=['POST'])
+def create_order():
+    data = request.get_json()
+    cart_items = data['cartItems']
+    user_id = data['userId']
+
+    order = {
+        'userId': ObjectId(user_id),
+        'cartItems': cart_items
+    }
+
+    print("WHAT IS GOING TO ORDER",order)
+
+    result = order_collection.insert_one(order)
+
+    if result.acknowledged:
+        return jsonify({
+            'status': 'success',
+            'message': 'Order created successfully',
+            'orderId': str(result.inserted_id)
+        }), 201
+
+    return jsonify({
+        'status': 'error',
+        'message': 'An error occurred while creating the order'
+    }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
