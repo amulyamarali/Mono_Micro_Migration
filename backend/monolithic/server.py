@@ -34,7 +34,7 @@ def login():
     if user:
         # Verify password
         if bcrypt.checkpw(password.encode('utf-8'), user['password']):
-            return jsonify({'message': 'Login successful', 'userID': str(user['_id'])})  # Include user's _id in the response
+            return jsonify({'message': 'Login successful :)', 'userID': str(user['_id'])})  # Include user's _id in the response
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
     else:
