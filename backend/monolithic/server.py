@@ -21,6 +21,7 @@ CORS(app)  # Enable CORS for all routes
 client = MongoClient(uri)
 db = client['monolithic_db']  # Change 'your_database_name' to your actual database name
 user_collection = db['user']
+cart_collection = db['cart']
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -33,7 +34,7 @@ def login():
     if user:
         # Verify password
         if bcrypt.checkpw(password.encode('utf-8'), user['password']):
-            return jsonify({'message': 'Login successful'})
+            return jsonify({'message': 'Login successful', 'userID': str(user['_id'])})  # Include user's _id in the response
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
     else:
@@ -61,6 +62,12 @@ def signup():
     user_id = user_collection.insert_one({'name': name, 'age' : age ,'email': email, 'password': hashed_password, 'ph.no': ph, 'address': address}).inserted_id
 
     return jsonify({'message': 'Signup successful', 'user_id': str(user_id)}), 201
+
+@app.route('/cart', methods=['POST'])
+def add_to_cart():
+    data = request.get_json()  # Get data sent in the request
+    cart_collection.insert_one(data)  # Insert the data into the cart collection
+    return jsonify({"message": "Item added to cart"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -51,15 +51,15 @@ const Navbar = () => {
             <li>Watches</li>
           </Link>
 
-          <Link to="/men" className="custom-link">
+          {/* <Link to="/men" className="custom-link">
             <li>Mens Wear</li>
-          </Link>
+          </Link> */}
 
-          <Link to="/woman" className="custom-link">
+          {/* <Link to="/woman" className="custom-link">
             <li>Woman Wear</li>
-          </Link>
+          </Link> */}
 
-          <Link to="/furniture" className="custom-link">
+          {/* <Link to="/furniture" className="custom-link">
             <li>Furniture</li>
           </Link>
 
@@ -72,15 +72,15 @@ const Navbar = () => {
           </Link>
           <Link to="/" className="custom-link">
             <li>Books</li>
-          </Link>
+          </Link> */}
 
-          <Link to="/" className="custom-link">
+          {/* <Link to="/" className="custom-link">
             <li>Speakers</li>
           </Link>
 
           <Link to="/" className="custom-link">
             <li>TV's</li>
-          </Link>
+          </Link> */}
 
           <Link to="/ac" className="custom-link">
             <li>AC</li>
