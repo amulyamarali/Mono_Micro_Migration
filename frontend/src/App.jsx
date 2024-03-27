@@ -28,6 +28,7 @@ import FridgeSingle from './stores/singles/FridgeSingle'
 import Login from './stores/components/Login'
 import Signup from './stores/components/Signup'
 import Actual from './stores/components/Actual'
+import Order from './stores/components/Order'
 
 const App = () => {
   return (
@@ -56,6 +57,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path='/actual' element = {<Actual />} />
+      <Route path='/order' element = {<Order />} />
       </Routes>
     </div>
   )

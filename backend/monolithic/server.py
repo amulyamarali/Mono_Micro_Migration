@@ -63,11 +63,25 @@ def signup():
 
     return jsonify({'message': 'Signup successful', 'user_id': str(user_id)}), 201
 
-@app.route('/cart', methods=['POST'])
+@app.route('/cartadd', methods=['POST'])
 def add_to_cart():
     data = request.get_json()  # Get data sent in the request
     cart_collection.insert_one(data)  # Insert the data into the cart collection
     return jsonify({"message": "Item added to cart"}), 200
+
+@app.route('/cartrem', methods=['DELETE'])
+def remove_from_cart():
+    data = request.get_json()  # Get data sent in the request
+    userId = data.get('userId')
+    id = data.get('productId')
+
+    # Remove the item from the cart collection
+    result = cart_collection.delete_one({'userId': userId, 'id': id})
+
+    if result.deleted_count == 0:
+        return jsonify({"message": "No item found to delete"}), 404
+
+    return jsonify({"message": "Item removed from cart"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
