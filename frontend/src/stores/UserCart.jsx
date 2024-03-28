@@ -39,7 +39,7 @@ const UserCart = () => {
         return obj;
       }, {});
   
-      const response = await axios.post('http://127.0.0.1:5000/order', {
+      const response = await axios.post('http://127.0.0.1:7000/order', {
         cartItems: cartItemsObject,
         userId: userId,  // Use the user ID from context
       });

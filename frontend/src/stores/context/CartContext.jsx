@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/cartadd', {
+      const response = await fetch('http://localhost:8000/cartadd', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (item) => {
     try {
-      const response = await fetch('http://localhost:5000/cartrem', {
+      const response = await fetch('http://localhost:8000/cartrem', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

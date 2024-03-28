@@ -21,7 +21,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:5000/signup', formData);
+      const response = await axios.post('http://127.0.0.1:9000/signup', formData);
       console.log(response.data); // Log the response from the server
 
       navigate('/');  // Redirect to the home page
