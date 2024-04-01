@@ -9,6 +9,11 @@ from model import user_collection
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# in '/' path print hi on the screen 
+@app.route('/')
+def home():
+    return "Hi"
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -52,4 +57,4 @@ def signup():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=9000)
+    app.run(debug=True, port=9000, host = '0.0.0.0')

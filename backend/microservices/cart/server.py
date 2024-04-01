@@ -9,6 +9,12 @@ from model import cart_collection
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# in '/' path print hi on the screen 
+@app.route('/')
+def home():
+    return "Hi"
+
+
 
 @app.route('/cartadd', methods=['POST'])
 def add_to_cart():
@@ -31,4 +37,4 @@ def remove_from_cart():
     return jsonify({"message": "Item removed from cart"}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=8000, host='0.0.0.0')

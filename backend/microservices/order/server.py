@@ -9,6 +9,13 @@ from model import order_collection
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# in '/' path print hi on the screen 
+@app.route('/')
+def home():
+    return "Hi"
+
+
+
 @app.route('/order', methods=['POST'])
 def create_order():
     data = request.get_json()
@@ -38,4 +45,4 @@ def create_order():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=7000)
+    app.run(debug=True, port=7000, host = '0.0.0.0')
