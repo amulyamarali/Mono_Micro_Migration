@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: amulyamarali/frontend
+        ports:
+        - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-mgmt
+  labels:
+    app: order-mgmt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-mgmt
+  template:
+    metadata:
+      labels:
+        app: order-mgmt
+    spec:
+      containers:
+      - name: order-mgmt
+        image: amulyamarali/order-mgmt
+        ports:
+        - containerPort: 7000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-mgmt
+  labels:
+    app: user-mgmt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-mgmt
+  template:
+    metadata:
+      labels:
+        app: user-mgmt
+    spec:
+      containers:
+      - name: user-mgmt
+        image: amulyamarali/user-mgmt
+        ports:
+        - containerPort: 9000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-mgmt
+  labels:
+    app: cart-mgmt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cart-mgmt
+  template:
+    metadata:
+      labels:
+        app: cart-mgmt
+    spec:
+      containers:
+      - name: cart-mgmt
+        image: amulyamarali/cart-mgmt
+        ports:
+        - containerPort: 8000
