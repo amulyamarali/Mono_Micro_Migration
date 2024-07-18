@@ -1,4 +1,8 @@
-## Monolithic to Microservices Migration for E-commerce Website
+# Monolithic to Microservices Migration for E-commerce Website
+
+## Architecture
+![image](https://github.com/user-attachments/assets/f438fa6e-386d-4255-ba4d-dbeae17b88d5)
+
 
 This repo provides step-by-step instructions for migrating an existing monolithic e-commerce website to a microservices architecture using the strangler pattern. We'll be using React for the frontend, Flask for the backend, and MongoDB Atlas as the database.
 
